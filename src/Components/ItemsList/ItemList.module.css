@@ -1,0 +1,23 @@
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.label{
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    display: inline;
+    margin-left: 20px;
+}
+
+.link{
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 3px;
+    background-color: rgb(230, 230, 230);
+    color: rgb(0, 30, 255);
+    display: inline;
+    margin-left: 300px;
+}
