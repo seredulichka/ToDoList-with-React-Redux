@@ -23,4 +23,4 @@ store.subscribe(()=>{
 });
 
 
-// reportWebVitals();
+reportWebVitals();

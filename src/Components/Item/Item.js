@@ -5,22 +5,22 @@ const DELETE_DEAL = 'DELETE-DEAL',
       IMPORTANT_DEAL = 'IMPORTANT-DEAL',
       DONE_DEAL = 'DONE-DEAL';
 
-const delereDealActionCreator = (label) => ({type: DELETE_DEAL, label: label})
-const importantDealActionCreator = (label) => ({type: IMPORTANT_DEAL, label: label})
-const doneDealActionCreator = (label) => ({type: DONE_DEAL, label: label})
+const delereDealActionCreator = (id) => ({type: DELETE_DEAL, id: id})
+const importantDealActionCreator = (id) => ({type: IMPORTANT_DEAL, id: id})
+const doneDealActionCreator = (id) => ({type: DONE_DEAL, id: id})
 
 const Item = (props) => {
     let {dispatch, label, important, done, id} = props;
     let onImportant = () => {
-        dispatch(importantDealActionCreator(label));
+        dispatch(importantDealActionCreator(id));
     }
 
     let onDone = () => {
-        dispatch(doneDealActionCreator(label));
+        dispatch(doneDealActionCreator(id));
     }
 
     let deleteDeal = () => {
-        dispatch(delereDealActionCreator(label));
+        dispatch(delereDealActionCreator(id));
     }
 
     let classNames = "app-list-item d-flex justify-content-between";
@@ -38,8 +38,7 @@ const Item = (props) => {
             </span>
             <div className="d-flex justify-content-center align-items-center">
                 <button className="btn-done" onClick={onDone}>
-                    {/* <input className="checkbox" type="checkbox"/> */}
-                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <i className="fa fa-check" aria-hidden="true"></i>
                 </button>
                 <button type="button" className="btn-star btn-sm" onClick={onImportant}>
                     <i className="fa fa-star"></i>

@@ -17,19 +17,19 @@ let initialState  = {
 const dealsReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_DEAL: let body = state.newMessageText;
+            let id = Date.now(); 
             state.newMessageText = '';
-            state.deals.push({id: 4, label: body, important: false, done: false});
-            console.log(state);
+            state.deals.push({id: id, label: body, important: false, done: false});
             return state;
         case UPDATE_NEW_DEAL_TEXT:
             state.newMessageText = action.newText;
             return state;
         case DELETE_DEAL:
-            let index = state.deals.findIndex(element => element.label === action.label)
+            let index = state.deals.findIndex(element => element.id === action.id)
             state.deals.splice(index,1);
             return state;
         case IMPORTANT_DEAL:
-            let indexImportant = state.deals.findIndex(element => element.label === action.label);
+            let indexImportant = state.deals.findIndex(element => element.id === action.id);
             if(state.deals[indexImportant].important){
                 state.deals[indexImportant].important = false;
             } else {
@@ -37,13 +37,12 @@ const dealsReducer = (state = initialState, action) => {
             } 
             return state;
         case DONE_DEAL:
-            let indexDone = state.deals.findIndex(element => element.label === action.label);
+            let indexDone = state.deals.findIndex(element => element.id === action.id);
             if(state.deals[indexDone].done){
                 state.deals[indexDone].done = false;
             } else {
                 state.deals[indexDone].done = true;
             } 
-            console.log(state)
             return state;
         default:
             return state 
